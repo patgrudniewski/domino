@@ -1,8 +1,8 @@
 CC=g++
-CFLAGS=
+CFLAGS=-I./src
 
 DEPS=
-OBJ=main.o
+OBJ=main.o src/Domino/Field.o
 
 all: make
 
@@ -13,6 +13,6 @@ make: $(OBJ)
 	$(CC) -o main.out $^ $(CFLAGS)
 
 clean:
-	rm -f *.o *~ core
+	find . -type f -name '*.o' -delete
 
 .PHONY: clean make
