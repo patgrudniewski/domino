@@ -32,4 +32,4 @@ $(DEPS):
 		tar -xvzf $(TMPDIR)/$(notdir $@) -C $(LIBDIR)/ ; \
 	fi;
 
-.PHONY: clean build all dependencies
+.PHONY: clean build all
