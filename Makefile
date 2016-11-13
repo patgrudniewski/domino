@@ -1,18 +1,31 @@
 CC=g++
 CFLAGS=-I./src
+DEPS=https\://sourceforge.net/projects/tclap/files/tclap-1.2.1.tar.gz
 
-DEPS=
+TMPDIR=./tmp
+LIBDIR=./lib
+
 OBJ=$(patsubst %.cpp, %.o, $(shell find . -name '*\.cpp'))
 
-all: compile
+all: build
 
-%.o: %.cpp $(DEPS)
+%.o: %.cpp
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-compile: $(OBJ)
+build: $(OBJ)
 	$(CC) -o main.out $^ $(CFLAGS)
 
 clean:
 	find . -type f -name '*.o' -delete
+	rm -rf ./tmp
 
-.PHONY: clean make
+$(DEPS):
+	mkdir -p $(TMPDIR) $(LIBDIR)
+	if [ ! -f $(TMPDIR)/$(notdir $@) ] ; then \
+		wget $@ -O $(TMPDIR)/$(notdir $@) ; \
+	fi;
+	if [[ "$(notdir $@)" =~ [*\.tar\.gz$$] ]] ; then \
+		tar -xvzf $(TMPDIR)/$(notdir $@) -C $(LIBDIR)/ ; \
+	fi;
+
+.PHONY: clean build all dependencies
