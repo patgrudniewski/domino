@@ -5,18 +5,13 @@
 #define DOMINO_FIELD_H
 
 namespace Domino {
-    class Field {
+    class Board {
         public:
-            /**
-             * @param int size[]
-             */
-            Field(int size[]);
-
             /**
              * @param int size_x
              * @param int size_y
              */
-            Field(int size_x, int size_y);
+            Board(int size_x, int size_y);
     };
 }
 
