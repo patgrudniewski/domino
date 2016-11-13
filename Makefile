@@ -2,14 +2,14 @@ CC=g++
 CFLAGS=-I./src
 
 DEPS=
-OBJ=main.o src/Domino/Field.o
+OBJ=$(patsubst %.cpp, %.o, $(shell find . -name '*\.cpp'))
 
-all: make
+all: compile
 
 %.o: %.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-make: $(OBJ)
+compile: $(OBJ)
 	$(CC) -o main.out $^ $(CFLAGS)
 
 clean:
