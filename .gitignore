@@ -31,3 +31,6 @@
 # Directories
 /tmp
 /lib
+
+# Text editor files
+.vimrc
