@@ -5,7 +5,8 @@
 #define DOMINO_FIELD_H
 
 namespace Domino {
-    class Board {
+    class Board
+    {
         public:
             /**
              * @param int size_x

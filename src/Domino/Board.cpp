@@ -3,8 +3,6 @@
  */
 #include "Board.h"
 
-#include <cstdlib>
-
 namespace Domino {
     /**
      * @param int size_x
