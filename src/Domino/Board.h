@@ -22,6 +22,16 @@ namespace Domino {
              * @return int
              */
             int getHeight();
+
+            /**
+             * @return int
+             */
+            int getSurface();
+
+            /**
+             * @return int
+             */
+            int getMaxTilesCount();
         private:
             /**
              * @var int[]

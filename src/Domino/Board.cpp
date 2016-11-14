@@ -31,4 +31,20 @@ namespace Domino {
     {
         return this->size[1];
     }
+
+    /**
+     * @return int
+     */
+    int Board::getSurface()
+    {
+        return this->size[0] * this->size[1];
+    }
+
+    /**
+     * @return int
+     */
+    int Board::getMaxTilesCount()
+    {
+        return this->getSurface() / 2;
+    }
 }
