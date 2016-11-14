@@ -6,13 +6,8 @@
 /**
  * @param int argc
  * @param char** argv
- * @return int
+ * @return void
  */
-int main(int argc, char** argv)
+void App::run(int argv, char** argc)
 {
-    App app;
-
-    app.run(argc, argv);
-
-    return 0;
 }
