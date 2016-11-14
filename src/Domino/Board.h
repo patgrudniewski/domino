@@ -12,6 +12,21 @@ namespace Domino {
              * @param int size_y
              */
             Board(int size_x, int size_y);
+
+            /**
+             * @return int
+             */
+            int getWidth();
+
+            /**
+             * @return int
+             */
+            int getHeight();
+        private:
+            /**
+             * @var int[]
+             */
+            int size[2];
     };
 }
 

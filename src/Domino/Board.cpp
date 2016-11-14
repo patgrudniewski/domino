@@ -3,6 +3,8 @@
  */
 #include "Board.h"
 
+#include <cstdlib>
+
 namespace Domino {
     /**
      * @param int size_x
@@ -10,6 +12,23 @@ namespace Domino {
      */
     Board::Board(int size_x, int size_y)
     {
-        // @TODO: implement constructor
+        this->size[0] = size_x;
+        this->size[1] = size_y;
+    }
+
+    /**
+     * @return int
+     */
+    int Board::getWidth()
+    {
+        return this->size[0];
+    }
+
+    /**
+     * @return int
+     */
+    int Board::getHeight()
+    {
+        return this->size[1];
     }
 }
