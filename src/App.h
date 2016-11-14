@@ -7,7 +7,9 @@
 #include <iostream>
 #include <string>
 
+#include "tclap/Arg.h"
 #include "tclap/CmdLine.h"
+#include "tclap/UnlabeledValueArg.h"
 
 class App final
 {
@@ -15,6 +17,8 @@ class App final
         static const std::string VERSION;
 
         App();
+
+        ~App();
 
         /**
          * @param int argc
@@ -28,6 +32,16 @@ class App final
          * @var TCLAP::CmdLine*
          */
         TCLAP::CmdLine* cli;
+
+        /**
+         * @var TCLAP::Arg**
+         */
+        TCLAP::Arg** cli_args;
+
+        /**
+         * @return void
+         */
+        void buildCliArgs();
 };
 
 #endif
