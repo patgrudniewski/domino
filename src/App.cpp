@@ -28,7 +28,13 @@ App::~App()
 void App::run(int argv, char** argc)
 {
     try {
+        int width, height;
+
         this->cli->parse(argv, argc);
+
+        width = ((UnlabeledValueArg<int>*) this->cli_args[0])->getValue();
+        height = ((UnlabeledValueArg<int>*) this->cli_args[1])->getValue();
+
     } catch (ArgException &e) {
         cerr << "Error: " << e.error() << " for argument " << e.argId() << endl;
     }
