@@ -1,6 +1,8 @@
 /**
  * @author Patryk Grudniewski <patgrudniewski@gmail.com>
  */
+#include <vector>
+
 #include "App.h"
 
 using namespace Domino;
@@ -32,6 +34,7 @@ void App::run(int argv, char** argc)
     try {
         int width, height;
         SetComposer *composer;
+        vector<int> *hashes;
 
         this->cli->parse(argv, argc);
 
@@ -39,6 +42,7 @@ void App::run(int argv, char** argc)
         height = ((UnlabeledValueArg<int>*) this->cli_args[1])->getValue();
 
         composer = new SetComposer(new Board(width, height));
+        hashes = composer->getAllPossibleCompositionHashes();
     } catch (ArgException &e) {
         cerr << "Error: " << e.error() << " for argument " << e.argId() << endl;
     } catch (InvalidBoardSizeException &e) {

@@ -4,6 +4,12 @@
 #ifndef DOMINO_SETCOMPOSER_H
 #define DOMINO_SETCOMPOSER_H
 
+#include <cmath>
+#include <cstdlib>
+#include <iterator>
+#include <numeric>
+#include <vector>
+
 #include "Board.h"
 #include "Exception/InvalidBoardSizeException.h"
 
@@ -16,6 +22,11 @@ namespace Domino {
              * @throws Exception::InvalidBoardSizeException
              */
             SetComposer(Board* board);
+
+            /**
+             * @return std::vector<int>*
+             */
+            std::vector<int>* getAllPossibleCompositionHashes();
 
         private:
             /**

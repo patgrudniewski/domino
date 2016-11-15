@@ -6,6 +6,7 @@
 
 namespace Domino {
     using namespace Exception;
+    using namespace std;
 
     /**
      * @param Board* board
@@ -18,6 +19,23 @@ namespace Domino {
         }
 
         this->board = board;
+    }
+
+    /**
+     * @return vector<int>*
+     */
+    vector<int>* SetComposer::getAllPossibleCompositionHashes()
+    {
+        int setCount;
+        vector<int> *hashes;
+
+        setCount = pow(2, this->board->getMaxTilesCount());
+        hashes = new vector<int>(setCount);
+        iota(begin(*hashes), end(*hashes), 0);
+
+        // @TODO: filter off impossible hashes
+
+        return hashes;
     }
 
     /**
