@@ -3,6 +3,8 @@
  */
 #include "App.h"
 
+using namespace Domino;
+using namespace Domino::Exception;
 using namespace std;
 using namespace TCLAP;
 
@@ -29,14 +31,18 @@ void App::run(int argv, char** argc)
 {
     try {
         int width, height;
+        SetComposer *composer;
 
         this->cli->parse(argv, argc);
 
         width = ((UnlabeledValueArg<int>*) this->cli_args[0])->getValue();
         height = ((UnlabeledValueArg<int>*) this->cli_args[1])->getValue();
 
+        composer = new SetComposer(new Board(width, height));
     } catch (ArgException &e) {
         cerr << "Error: " << e.error() << " for argument " << e.argId() << endl;
+    } catch (InvalidBoardSizeException &e) {
+        cerr << "Error: " << e.what() << endl;
     }
 }
 

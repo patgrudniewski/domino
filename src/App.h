@@ -8,8 +8,12 @@
 #include <string>
 
 #include "tclap/Arg.h"
+#include "tclap/ArgException.h"
 #include "tclap/CmdLine.h"
 #include "tclap/UnlabeledValueArg.h"
+#include "Domino/Board.h"
+#include "Domino/Exception/InvalidBoardSizeException.h"
+#include "Domino/SetComposer.h"
 
 class App final
 {
