@@ -7,14 +7,16 @@
 #include <cmath>
 #include <vector>
 
+#include "Board.h"
+
 namespace Domino {
     class Set {
         public:
             /**
+             * @param Board* board
              * @param std::vector<int>::const_iterator hash
-             * @param int tiles_n
              */
-            Set(std::vector<int>::const_iterator hash, int tiles_n);
+            Set(Board *board, std::vector<int>::const_iterator hash);
     };
 }
 
