@@ -66,9 +66,9 @@ namespace Domino {
             unsigned size[2];
 
             /**
-             * @var int**
+             * @var bool**
              */
-            int** map;
+            bool** map;
 
             /**
              * @return std::pair<unsigned int, unsigned int>*

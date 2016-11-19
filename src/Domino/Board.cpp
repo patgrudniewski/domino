@@ -16,9 +16,9 @@ namespace Domino {
         this->size[0] = size_x;
         this->size[1] = size_y;
 
-        this->map = (int**)malloc(this->size[0] * sizeof(int*));
+        this->map = (bool**)malloc(this->size[0] * sizeof(bool*));
         for (int i = 0; i < this->size[0]; i++) {
-            this->map[i] = (int*)calloc(this->size[1], sizeof(int));
+            this->map[i] = (bool*)calloc(this->size[1], sizeof(bool));
         }
     }
 
