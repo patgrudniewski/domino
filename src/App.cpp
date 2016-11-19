@@ -43,6 +43,9 @@ void App::run(int argv, char** argc)
 
         composer = new SetComposer(new Board(width, height));
         hashes = composer->getAllPossibleCompositionHashes();
+
+        // @TODO: count hashes
+        // @TODO: print number of correct hashes
     } catch (ArgException &e) {
         cerr << "Error: " << e.error() << " for argument " << e.argId() << endl;
     } catch (InvalidBoardSizeException &e) {
