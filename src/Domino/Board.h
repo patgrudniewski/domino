@@ -4,6 +4,8 @@
 #ifndef DOMINO_FIELD_H
 #define DOMINO_FIELD_H
 
+#include <cstdlib>
+
 namespace Domino {
     class Board
     {
@@ -13,6 +15,8 @@ namespace Domino {
              * @param int size_y
              */
             Board(int size_x, int size_y);
+
+            ~Board();
 
             /**
              * @return int
@@ -44,6 +48,11 @@ namespace Domino {
              * @var int[]
              */
             int size[2];
+
+            /**
+             * @var int**
+             */
+            int** map;
     };
 }
 

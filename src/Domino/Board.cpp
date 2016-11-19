@@ -12,6 +12,19 @@ namespace Domino {
     {
         this->size[0] = size_x;
         this->size[1] = size_y;
+
+        this->map = (int**)malloc(this->size[0] * sizeof(int*));
+        for (int i = 0; i < this->size[0]; i++) {
+            this->map[i] = (int*)malloc(this->size[1] * sizeof(int));
+        }
+    }
+
+    Board::~Board()
+    {
+        for (int i = 0; i < this->size[0]; i++) {
+            free(this->map[i]);
+        }
+        free(this->map);
     }
 
     /**
