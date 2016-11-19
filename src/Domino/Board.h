@@ -5,6 +5,9 @@
 #define DOMINO_FIELD_H
 
 #include <cstdlib>
+#include <utility>
+
+#include "Exception/BoardOverflowException.h"
 
 namespace Domino {
     class Board
@@ -41,8 +44,17 @@ namespace Domino {
             /**
              * @param bool vertical
              * @return void
+             * @throw Exception::BoardOverflowException
              */
             void addTile(bool vertical);
+
+            /**
+             * @param bool vertical
+             * @param int pos_x
+             * @param int pos_y
+             * @return void
+             */
+            void addTile(bool vertical, int pos_x, int pos_y);
         private:
             /**
              * @var int[]
@@ -53,6 +65,11 @@ namespace Domino {
              * @var int**
              */
             int** map;
+
+            /**
+             * @return std::pair<int, int>*
+             */
+            std::pair<int, int>* findEmptySpace();
     };
 }
 

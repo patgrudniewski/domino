@@ -10,7 +10,8 @@
 #include "Board.h"
 
 namespace Domino {
-    class Set {
+    class Set
+    {
         public:
             /**
              * @param Board* board
