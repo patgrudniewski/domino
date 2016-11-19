@@ -17,6 +17,12 @@ namespace Domino {
              * @param std::vector<int>::const_iterator hash
              */
             Set(Board *board, std::vector<int>::const_iterator hash);
+
+        private:
+            /**
+             * @var Board*
+             */
+            Board* board;
     };
 }
 

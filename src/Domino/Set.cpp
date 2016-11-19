@@ -11,6 +11,7 @@ namespace Domino {
      * @param vector<int>::const_iterator hash
      */
     Set::Set(Board *board, vector<int>::const_iterator hash)
+        :board(board)
     {
         int tiles_n = board->getMaxTilesCount(),
             mask = 1,
@@ -18,6 +19,7 @@ namespace Domino {
 
         while (mask < mask_limit) {
             bool vertical = (bool)(*hash & mask);
+
             // @TODO: add tile to the board
             // @TODO: throw exception if impossible
 
