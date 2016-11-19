@@ -76,6 +76,8 @@ namespace Domino {
         }
 
         this->addTile(vertical, coordinates->first, coordinates->second);
+
+        free(coordinates);
     }
 
     /**
