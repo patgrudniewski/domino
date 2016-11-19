@@ -33,6 +33,12 @@ namespace Domino {
              * @return int
              */
             int getMaxTilesCount();
+
+            /**
+             * @param bool vertical
+             * @return void
+             */
+            void addTile(bool vertical);
         private:
             /**
              * @var int[]

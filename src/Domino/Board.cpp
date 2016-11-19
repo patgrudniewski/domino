@@ -45,4 +45,13 @@ namespace Domino {
     {
         return this->getSurface() / 2;
     }
+
+    /**
+     * @param bool vertical
+     * @return void
+     */
+    void Board::addTile(bool vertical)
+    {
+        //@TODO: add tile to the board
+    }
 }
