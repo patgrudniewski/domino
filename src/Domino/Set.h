@@ -4,6 +4,7 @@
 #ifndef DOMINO_SET_H
 #define DOMINO_SET_H
 
+#include <cmath>
 #include <vector>
 
 namespace Domino {
@@ -11,8 +12,9 @@ namespace Domino {
         public:
             /**
              * @param std::vector<int>::const_iterator hash
+             * @param int tiles_n
              */
-            Set(std::vector<int>::const_iterator hash);
+            Set(std::vector<int>::const_iterator hash, int tiles_n);
     };
 }
 

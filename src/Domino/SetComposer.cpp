@@ -34,7 +34,7 @@ namespace Domino {
         iota(begin(*hashes), end(*hashes), 0);
         for (vector<int>::const_iterator hash = hashes->begin(); hash != hashes->end(); ++hash) {
             Set *set;
-            set = new Set(hash);
+            set = new Set(hash, this->board->getMaxTilesCount());
             // @TODO: filter off impossible hashes
 
             delete set;
