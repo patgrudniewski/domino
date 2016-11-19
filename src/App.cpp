@@ -22,6 +22,7 @@ App::App()
 App::~App()
 {
     free(this->cli_args);
+    delete this->cli;
 }
 
 /**
@@ -33,19 +34,25 @@ void App::run(int argv, char** argc)
 {
     try {
         int width, height;
-        SetComposer *composer;
         vector<int> *hashes;
+        Board *board;
+        SetComposer *composer;
 
         this->cli->parse(argv, argc);
 
         width = ((UnlabeledValueArg<int>*) this->cli_args[0])->getValue();
         height = ((UnlabeledValueArg<int>*) this->cli_args[1])->getValue();
 
-        composer = new SetComposer(new Board(width, height));
+        board = new Board(width, height);
+        composer = new SetComposer(board);
         hashes = composer->getAllPossibleCompositionHashes();
 
         // @TODO: count hashes
         // @TODO: print number of correct hashes
+
+        delete board;
+        delete composer;
+        delete hashes;
     } catch (ArgException &e) {
         cerr << "Error: " << e.error() << " for argument " << e.argId() << endl;
     } catch (InvalidBoardSizeException &e) {

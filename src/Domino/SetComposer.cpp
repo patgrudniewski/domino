@@ -36,6 +36,8 @@ namespace Domino {
             Set *set;
             set = new Set(hash);
             // @TODO: filter off impossible hashes
+
+            delete set;
         }
 
         return hashes;
