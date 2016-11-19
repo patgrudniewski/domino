@@ -12,6 +12,7 @@
 
 #include "Board.h"
 #include "Exception/InvalidBoardSizeException.h"
+#include "Set.h"
 
 namespace Domino {
     class SetComposer

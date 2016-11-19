@@ -3,7 +3,6 @@
  */
 #include "SetComposer.h"
 
-
 namespace Domino {
     using namespace Exception;
     using namespace std;
@@ -30,10 +29,14 @@ namespace Domino {
         vector<int> *hashes;
 
         setCount = pow(2, this->board->getMaxTilesCount());
+
         hashes = new vector<int>(setCount);
         iota(begin(*hashes), end(*hashes), 0);
-
-        // @TODO: filter off impossible hashes
+        for (vector<int>::const_iterator hash = hashes->begin(); hash != hashes->end(); ++hash) {
+            Set *set;
+            set = new Set(hash);
+            // @TODO: filter off impossible hashes
+        }
 
         return hashes;
     }
