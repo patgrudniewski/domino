@@ -33,15 +33,15 @@ App::~App()
 void App::run(int argv, char** argc)
 {
     try {
-        int width, height;
-        vector<int> *hashes;
+        unsigned int width, height;
+        vector<unsigned int> *hashes;
         Board *board;
         SetComposer *composer;
 
         this->cli->parse(argv, argc);
 
-        width = ((UnlabeledValueArg<int>*) this->cli_args[0])->getValue();
-        height = ((UnlabeledValueArg<int>*) this->cli_args[1])->getValue();
+        width = ((UnlabeledValueArg<unsigned int>*) this->cli_args[0])->getValue();
+        height = ((UnlabeledValueArg<unsigned int>*) this->cli_args[1])->getValue();
 
         board = new Board(width, height);
         composer = new SetComposer(board);

@@ -8,10 +8,10 @@ namespace Domino {
     using namespace Exception;
 
     /**
-     * @param int size_x
-     * @param int size_y
+     * @param unsigned int size_x
+     * @param unsigned int size_y
      */
-    Board::Board(int size_x, int size_y)
+    Board::Board(unsigned int size_x, unsigned int size_y)
     {
         this->size[0] = size_x;
         this->size[1] = size_y;
@@ -31,33 +31,33 @@ namespace Domino {
     }
 
     /**
-     * @return int
+     * @return unsigned int
      */
-    int Board::getWidth()
+    unsigned int Board::getWidth()
     {
         return this->size[0];
     }
 
     /**
-     * @return int
+     * @return unsigned int
      */
-    int Board::getHeight()
+    unsigned int Board::getHeight()
     {
         return this->size[1];
     }
 
     /**
-     * @return int
+     * @return unsigned int
      */
-    int Board::getSurface()
+    unsigned int Board::getSurface()
     {
         return this->size[0] * this->size[1];
     }
 
     /**
-     * @return int
+     * @return unsigned int
      */
-    int Board::getMaxTilesCount()
+    unsigned int Board::getMaxTilesCount()
     {
         return this->getSurface() / 2;
     }
@@ -69,7 +69,7 @@ namespace Domino {
      */
     void Board::addTile(bool vertical)
     {
-        pair<int, int> *coordinates;
+        pair<unsigned int, unsigned int> *coordinates;
         coordinates = this->findEmptySpace();
         if (NULL == coordinates) {
             throw new BoardOverflowException;
@@ -82,13 +82,13 @@ namespace Domino {
 
     /**
      * @param bool vertical
-     * @param int pos_x
-     * @param int pos_y
+     * @param unsigned int pos_x
+     * @param unsigned int pos_y
      * @return void
      * @throws invalid_argument
      * @throws BoardPositionNotEmptyException
      */
-    void Board::addTile(bool vertical, int pos_x, int pos_y)
+    void Board::addTile(bool vertical, unsigned int pos_x, unsigned int pos_y)
     {
         if (pos_x > this->size[0] || pos_y > this->size[1]) {
             throw new invalid_argument("Invalid board position");
@@ -100,16 +100,16 @@ namespace Domino {
     }
 
     /**
-     * @return pair<int, int>*
+     * @return pair<unsigned int, unsigned int>*
      */
-    pair<int, int>* Board::findEmptySpace()
+    pair<unsigned int, unsigned int>* Board::findEmptySpace()
     {
-        pair<int, int> *coordinates;
+        pair<unsigned int, unsigned int> *coordinates;
 
-        for (int i = 0; i < this->size[0]; i++) {
-            for (int j = 0; j < this->size[1]; j++) {
+        for (unsigned int i = 0; i < this->size[0]; i++) {
+            for (unsigned int j = 0; j < this->size[1]; j++) {
                 if (!this->map[i][j]) {
-                    coordinates = (pair<int, int>*)malloc(sizeof(pair<int, int>));
+                    coordinates = (pair<unsigned int, unsigned int>*)malloc(sizeof(pair<unsigned int, unsigned int>));
                     coordinates->first = i;
                     coordinates->second = j;
 

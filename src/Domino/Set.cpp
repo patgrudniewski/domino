@@ -8,12 +8,12 @@ namespace Domino {
 
     /**
      * @param Board* board
-     * @param vector<int>::const_iterator hash
+     * @param vector<unsigned int>::const_iterator hash
      */
-    Set::Set(Board *board, vector<int>::const_iterator hash)
+    Set::Set(Board *board, vector<unsigned int>::const_iterator hash)
         :board(board)
     {
-        int tiles_n = this->board->getMaxTilesCount(),
+        unsigned int tiles_n = this->board->getMaxTilesCount(),
             mask = 1,
             mask_limit = pow(2, tiles_n);
 

@@ -25,9 +25,9 @@ namespace Domino {
             SetComposer(Board* board);
 
             /**
-             * @return std::vector<int>*
+             * @return std::vector<unsigned int>*
              */
-            std::vector<int>* getAllPossibleCompositionHashes();
+            std::vector<unsigned int>* getAllPossibleCompositionHashes();
 
         private:
             /**

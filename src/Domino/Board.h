@@ -16,32 +16,32 @@ namespace Domino {
     {
         public:
             /**
-             * @param int size_x
-             * @param int size_y
+             * @param unsigned int size_x
+             * @param unsigned int size_y
              */
-            Board(int size_x, int size_y);
+            Board(unsigned int size_x, unsigned int size_y);
 
             ~Board();
 
             /**
-             * @return int
+             * @return unsigned int
              */
-            int getWidth();
+            unsigned int getWidth();
 
             /**
-             * @return int
+             * @return unsigned int
              */
-            int getHeight();
+            unsigned int getHeight();
 
             /**
-             * @return int
+             * @return unsigned int
              */
-            int getSurface();
+            unsigned int getSurface();
 
             /**
-             * @return int
+             * @return unsigned int
              */
-            int getMaxTilesCount();
+            unsigned int getMaxTilesCount();
 
             /**
              * @param bool vertical
@@ -52,18 +52,18 @@ namespace Domino {
 
             /**
              * @param bool vertical
-             * @param int pos_x
-             * @param int pos_y
+             * @param unsigned int pos_x
+             * @param unsigned int pos_y
              * @return void
              * @throws std::invalid_argument
              * @throws Exception::BoardPositionNotEmptyException
              */
-            void addTile(bool vertical, int pos_x, int pos_y);
+            void addTile(bool vertical, unsigned int pos_x, unsigned int pos_y);
         private:
             /**
-             * @var int[]
+             * @var unsigned int[]
              */
-            int size[2];
+            unsigned size[2];
 
             /**
              * @var int**
@@ -71,9 +71,9 @@ namespace Domino {
             int** map;
 
             /**
-             * @return std::pair<int, int>*
+             * @return std::pair<unsigned int, unsigned int>*
              */
-            std::pair<int, int>* findEmptySpace();
+            std::pair<unsigned int, unsigned int>* findEmptySpace();
     };
 }
 

@@ -23,16 +23,16 @@ namespace Domino {
     /**
      * @return vector<int>*
      */
-    vector<int>* SetComposer::getAllPossibleCompositionHashes()
+    vector<unsigned int>* SetComposer::getAllPossibleCompositionHashes()
     {
-        int setCount;
-        vector<int> *hashes;
+        unsigned int setCount;
+        vector<unsigned int> *hashes;
 
         setCount = pow(2, this->board->getMaxTilesCount());
 
-        hashes = new vector<int>(setCount);
+        hashes = new vector<unsigned int>(setCount);
         iota(begin(*hashes), end(*hashes), 0);
-        for (vector<int>::const_iterator hash = hashes->begin(); hash != hashes->end(); ++hash) {
+        for (vector<unsigned int>::const_iterator hash = hashes->begin(); hash != hashes->end(); ++hash) {
             Set *set;
             set = new Set(this->board, hash);
             // @TODO: filter off impossible hashes

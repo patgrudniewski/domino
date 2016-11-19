@@ -15,9 +15,9 @@ namespace Domino {
         public:
             /**
              * @param Board* board
-             * @param std::vector<int>::const_iterator hash
+             * @param std::vector<unsigned int>::const_iterator hash
              */
-            Set(Board *board, std::vector<int>::const_iterator hash);
+            Set(Board *board, std::vector<unsigned int>::const_iterator hash);
 
         private:
             /**
