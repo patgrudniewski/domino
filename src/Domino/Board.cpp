@@ -85,9 +85,17 @@ namespace Domino {
      * @param int pos_x
      * @param int pos_y
      * @return void
+     * @throws invalid_argument
+     * @throws BoardPositionNotEmptyException
      */
     void Board::addTile(bool vertical, int pos_x, int pos_y)
     {
+        if (pos_x > this->size[0] || pos_y > this->size[1]) {
+            throw new invalid_argument("Invalid board position");
+        }
+        if (this->map[pos_x][pos_y]) {
+            throw new BoardPositionNotEmptyException(pos_x, pos_y);
+        }
         //@TODO: add tile to the board
     }
 

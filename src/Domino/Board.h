@@ -5,9 +5,11 @@
 #define DOMINO_FIELD_H
 
 #include <cstdlib>
+#include <stdexcept>
 #include <utility>
 
 #include "Exception/BoardOverflowException.h"
+#include "Exception/BoardPositionNotEmptyException.h"
 
 namespace Domino {
     class Board
@@ -44,7 +46,7 @@ namespace Domino {
             /**
              * @param bool vertical
              * @return void
-             * @throw Exception::BoardOverflowException
+             * @throws Exception::BoardOverflowException
              */
             void addTile(bool vertical);
 
@@ -53,6 +55,8 @@ namespace Domino {
              * @param int pos_x
              * @param int pos_y
              * @return void
+             * @throws std::invalid_argument
+             * @throws Exception::BoardPositionNotEmptyException
              */
             void addTile(bool vertical, int pos_x, int pos_y);
         private:
