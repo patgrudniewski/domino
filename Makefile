@@ -16,6 +16,9 @@ all: build
 %.o: %.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
+build-dev: CFLAGS += -DDEBUG
+build-dev: build
+
 build: $(OBJ)
 	$(CC) -o main.out $^ $(CFLAGS)
 
