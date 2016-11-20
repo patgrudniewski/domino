@@ -4,31 +4,17 @@
 #ifndef DOMINO_EXCEPTION_BOARDPOSITIONNOTEMPTYEXCEPTION_H
 #define DOMINO_EXCEPTION_BOARDPOSITIONNOTEMPTYEXCEPTION_H
 
-#include <stdexcept>
-#include <utility>
+#include "../BoardPosition.h"
+#include "BoardPositionException.h"
 
 namespace Domino::Exception {
-    class BoardPositionNotEmptyException : public std::runtime_error
+    class BoardPositionNotEmptyException : public BoardPositionException
     {
         public:
             /**
-             * @param int x
-             * @param int y
+             * @param BoardPosition* position
              */
-            BoardPositionNotEmptyException(int x, int y);
-
-            /**
-             * @return int
-             */
-            int getPositionX();
-
-            /**
-             * @return int
-             */
-            int getPositionY();
-
-        private:
-            std::pair<int, int> position;
+            BoardPositionNotEmptyException(BoardPosition* position);
     };
 }
 
