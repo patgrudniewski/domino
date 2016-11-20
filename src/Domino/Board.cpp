@@ -83,17 +83,40 @@ namespace Domino {
      * @param bool vertical
      * @param BoardPosition* coordinates
      * @return void
-     * @throws invalid_argument
-     * @throws BoardPositionNotEmptyException
      */
     void Board::addTile(bool vertical, BoardPosition* coordinates)
     {
         TileLocation *location;
         location = new TileLocation(coordinates, vertical);
-        // @TODO: validate if tile-position-pair is out of bounds
-        // @TODO: validate if tile-position-pair is using allocated space
 
-        delete location;
+        try {
+            this->addTile(location);
+        } catch (BoardPositionException &e) {
+            delete location;
+            // @TODO: throw exception for further use
+        }
+    }
+
+    /**
+     * @param TileLocation* location
+     * @return void
+     * @throws invalid_argument
+     * @throws BoardPositionNotEmptyException
+     */
+    void Board::addTile(TileLocation* location)
+    {
+        BoardPosition *position[2];
+
+        // @TODO: validate if tile-position-pair is out of bounds
+        position[0] = location->getFirstSegmentPosition();
+        position[1] = location->getSecondSegmentPosition();
+        if (!this->isPositionFree(position[0])) {
+            throw BoardPositionNotEmptyException(position[0]);
+        }
+        if (!this->isPositionFree(position[1])) {
+            throw BoardPositionNotEmptyException(position[1]);
+        }
+        // @TODO: add tile location to top of the list
     }
 
 #ifdef DEBUG
@@ -131,5 +154,14 @@ namespace Domino {
         }
 
         return NULL;
+    }
+
+    /**
+     * @param BoardPosition* position
+     * @return bool
+     */
+    bool Board::isPositionFree(BoardPosition* position)
+    {
+        return !this->map[position->x][position->y];
     }
 }

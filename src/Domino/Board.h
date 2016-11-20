@@ -10,6 +10,7 @@
 
 #include "BoardPosition.h"
 #include "Exception/BoardOverflowException.h"
+#include "Exception/BoardPositionException.h"
 #include "Exception/BoardPositionNotEmptyException.h"
 #include "TileLocation.h"
 
@@ -65,6 +66,12 @@ namespace Domino {
              */
             void addTile(bool vertical, BoardPosition* coordinates);
 
+            /**
+             * @param TileLocation* location
+             * @return void
+             */
+            void addTile(TileLocation* location);
+
 #ifdef DEBUG
             /**
              * @return void
@@ -91,6 +98,12 @@ namespace Domino {
              * @return BoardPosition*
              */
             BoardPosition* findEmptySpace();
+
+            /**
+             * @param BoardPosition* position
+             * @return bool
+             */
+            bool isPositionFree(BoardPosition* position);
     };
 }
 
