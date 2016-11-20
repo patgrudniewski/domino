@@ -76,7 +76,6 @@ namespace Domino {
         }
 
         this->addTile(vertical, coordinates);
-
         free(coordinates);
     }
 
@@ -89,7 +88,8 @@ namespace Domino {
      */
     void Board::addTile(bool vertical, BoardPosition* coordinates)
     {
-        // @TODO: create tile-position-pair
+        TileLocation *location;
+        location = new TileLocation(coordinates, vertical);
         // @TODO: validate if tile-position-pair is out of bounds
         // @TODO: validate if tile-position-pair is using allocated space
     }

@@ -11,6 +11,7 @@
 #include "BoardPosition.h"
 #include "Exception/BoardOverflowException.h"
 #include "Exception/BoardPositionNotEmptyException.h"
+#include "TileLocation.h"
 
 #ifdef DEBUG
 #include <iostream>
