@@ -93,11 +93,6 @@ namespace Domino {
             bool** map;
 
             /**
-             * @var Tile*
-             */
-            Tile* tiles;
-
-            /**
              * @var int
              */
             int tile_count = 0;
