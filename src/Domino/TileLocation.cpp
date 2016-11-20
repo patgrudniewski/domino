@@ -41,6 +41,22 @@ namespace Domino {
         this->position[1].y = pos2->y;
     }
 
+    /**
+     * @return BoardPosition*
+     */
+    BoardPosition* TileLocation::getFirstSegmentPosition()
+    {
+        return &this->position[0];
+    }
+
+    /**
+     * @return BoardPosition*
+     */
+    BoardPosition* TileLocation::getSecondSegmentPosition()
+    {
+        return &this->position[1];
+    }
+
 #ifdef DEBUG
     /**
      * @return void

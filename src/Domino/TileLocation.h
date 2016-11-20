@@ -28,6 +28,16 @@ namespace Domino {
              */
             TileLocation(BoardPosition* pos1, BoardPosition* pos2);
 
+            /**
+             * @return BoardPosition*
+             */
+            BoardPosition* getFirstSegmentPosition();
+
+            /**
+             * @return BoardPosition*
+             */
+            BoardPosition* getSecondSegmentPosition();
+
 #ifdef DEBUG
             /**
              * @return void
