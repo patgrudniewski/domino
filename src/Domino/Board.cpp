@@ -93,7 +93,7 @@ namespace Domino {
             this->addTile(location);
         } catch (BoardPositionException &e) {
             delete location;
-            // @TODO: throw exception for further use
+            // @TODO: throw exception for further use (InvalidTileLocationException)
         }
     }
 

@@ -19,9 +19,6 @@ namespace Domino {
 
         while (mask < mask_limit) {
             this->board->addTile((bool)(*hash & mask));
-
-            // @TODO: throw exception if impossible
-
             mask <<= 1;
         }
     }
