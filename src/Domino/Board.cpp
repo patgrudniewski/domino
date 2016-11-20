@@ -89,6 +89,9 @@ namespace Domino {
      */
     void Board::addTile(bool vertical, Board::Position* coordinates)
     {
+        // @TODO: create tile-position-pair
+        // @TODO: validate if tile-position-pair is out of bounds
+        // @TODO: validate if tile-position-pair is using allocated space
     }
 
 #ifdef DEBUG
