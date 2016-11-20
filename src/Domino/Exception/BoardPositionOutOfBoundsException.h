@@ -11,6 +11,9 @@ namespace Domino::Exception {
     class BoardPositionOutOfBoundsException : public BoardPositionException
     {
         public:
+            /**
+             * @param BoardPosition* position
+             */
             BoardPositionOutOfBoundsException(BoardPosition* position);
     };
 }
