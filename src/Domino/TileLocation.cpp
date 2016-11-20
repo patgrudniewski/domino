@@ -4,6 +4,10 @@
 #include "TileLocation.h"
 
 namespace Domino {
+#ifdef DEBUG
+    using namespace std;
+#endif
+
     /**
      * @param BoardPosition* position
      * @param bool vertical
@@ -36,5 +40,17 @@ namespace Domino {
         this->position[1].x = pos2->x;
         this->position[1].y = pos2->y;
     }
+
+#ifdef DEBUG
+    /**
+     * @return void
+     */
+    void TileLocation::printCoordinates()
+    {
+        cout << "x1=" << this->position[0].x << "  ";
+        cout << "y1=" << this->position[0].y << endl;
+        cout << "x2=" << this->position[1].x << "  ";
+        cout << "y2=" << this->position[1].y << endl;
     }
+#endif
 }

@@ -7,7 +7,10 @@
 #include "BoardPosition.h"
 
 #include <cstdlib>
+
+#ifdef DEBUG
 #include <iostream>
+#endif
 
 namespace Domino {
     class TileLocation
@@ -24,6 +27,13 @@ namespace Domino {
              * @param BoardPosition* pos2
              */
             TileLocation(BoardPosition* pos1, BoardPosition* pos2);
+
+#ifdef DEBUG
+            /**
+             * @return void
+             */
+            void printCoordinates();
+#endif
 
         private:
             /**
