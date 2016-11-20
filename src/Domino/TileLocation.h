@@ -26,6 +26,9 @@ namespace Domino {
             TileLocation(BoardPosition* pos1, BoardPosition* pos2);
 
         private:
+            /**
+             * @var BoardPosition[]
+             */
             BoardPosition position[2];
     };
 }

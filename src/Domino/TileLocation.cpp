@@ -21,7 +21,7 @@ namespace Domino {
             pos2->y = position->y;
         }
 
-        TileLocation(position, pos2);
+        *this = TileLocation(position, pos2);
         free(pos2);
     }
 
@@ -31,7 +31,10 @@ namespace Domino {
      */
     TileLocation::TileLocation(BoardPosition* pos1, BoardPosition* pos2)
     {
-        this->position[0] = *pos1;
-        this->position[1] = *pos2;
+        this->position[0].x = pos1->x;
+        this->position[0].y = pos1->y;
+        this->position[1].x = pos2->x;
+        this->position[1].y = pos2->y;
+    }
     }
 }

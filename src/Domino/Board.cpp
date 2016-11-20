@@ -92,6 +92,8 @@ namespace Domino {
         location = new TileLocation(coordinates, vertical);
         // @TODO: validate if tile-position-pair is out of bounds
         // @TODO: validate if tile-position-pair is using allocated space
+
+        delete location;
     }
 
 #ifdef DEBUG
