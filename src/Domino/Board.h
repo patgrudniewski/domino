@@ -19,6 +19,18 @@ namespace Domino {
     class Board
     {
         public:
+            struct Position {
+                /**
+                 * @var unsigned int
+                 */
+                unsigned int x;
+
+                /**
+                 * @var unsigned int
+                 */
+                unsigned int y;
+            };
+
             /**
              * @param unsigned int size_x
              * @param unsigned int size_y
@@ -56,13 +68,12 @@ namespace Domino {
 
             /**
              * @param bool vertical
-             * @param unsigned int pos_x
-             * @param unsigned int pos_y
+             * @param Position* coordinates
              * @return void
              * @throws std::invalid_argument
              * @throws Exception::BoardPositionNotEmptyException
              */
-            void addTile(bool vertical, unsigned int pos_x, unsigned int pos_y);
+            void addTile(bool vertical, Position* coordinates);
 
 #ifdef DEBUG
             /**
@@ -82,9 +93,19 @@ namespace Domino {
             bool** map;
 
             /**
-             * @return std::pair<unsigned int, unsigned int>*
+             * @var Tile*
              */
-            std::pair<unsigned int, unsigned int>* findEmptySpace();
+            Tile* tiles;
+
+            /**
+             * @var int
+             */
+            int tile_count = 0;
+
+            /**
+             * @return Position*
+             */
+            Position* findEmptySpace();
     };
 }
 

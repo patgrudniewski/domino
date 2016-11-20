@@ -69,34 +69,26 @@ namespace Domino {
      */
     void Board::addTile(bool vertical)
     {
-        pair<unsigned int, unsigned int> *coordinates;
+        Board::Position *coordinates;
         coordinates = this->findEmptySpace();
         if (NULL == coordinates) {
             throw new BoardOverflowException;
         }
 
-        this->addTile(vertical, coordinates->first, coordinates->second);
+        this->addTile(vertical, coordinates);
 
         free(coordinates);
     }
 
     /**
      * @param bool vertical
-     * @param unsigned int pos_x
-     * @param unsigned int pos_y
+     * @param Board::Position* coordinates
      * @return void
      * @throws invalid_argument
      * @throws BoardPositionNotEmptyException
      */
-    void Board::addTile(bool vertical, unsigned int pos_x, unsigned int pos_y)
+    void Board::addTile(bool vertical, Board::Position* coordinates)
     {
-        if (pos_x > this->size[0] || pos_y > this->size[1]) {
-            throw new invalid_argument("Invalid board position");
-        }
-        if (this->map[pos_x][pos_y]) {
-            throw new BoardPositionNotEmptyException(pos_x, pos_y);
-        }
-        //@TODO: add tile to the board
     }
 
 #ifdef DEBUG
@@ -115,18 +107,18 @@ namespace Domino {
 #endif
 
     /**
-     * @return pair<unsigned int, unsigned int>*
+     * @return Board::Position*
      */
-    pair<unsigned int, unsigned int>* Board::findEmptySpace()
+    Board::Position* Board::findEmptySpace()
     {
-        pair<unsigned int, unsigned int> *coordinates;
+        Board::Position *coordinates;
 
         for (unsigned int i = 0; i < this->size[0]; i++) {
             for (unsigned int j = 0; j < this->size[1]; j++) {
                 if (!this->map[i][j]) {
-                    coordinates = (pair<unsigned int, unsigned int>*)malloc(sizeof(pair<unsigned int, unsigned int>));
-                    coordinates->first = i;
-                    coordinates->second = j;
+                    coordinates = (Board::Position*)malloc(sizeof(Board::Position));
+                    coordinates->x = i;
+                    coordinates->y = j;
 
                     return coordinates;
                 }
