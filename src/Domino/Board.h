@@ -11,6 +11,10 @@
 #include "Exception/BoardOverflowException.h"
 #include "Exception/BoardPositionNotEmptyException.h"
 
+#ifdef DEBUG
+#include <iostream>
+#endif
+
 namespace Domino {
     class Board
     {
@@ -59,6 +63,13 @@ namespace Domino {
              * @throws Exception::BoardPositionNotEmptyException
              */
             void addTile(bool vertical, unsigned int pos_x, unsigned int pos_y);
+
+#ifdef DEBUG
+            /**
+             * @return void
+             */
+            void printMap();
+#endif
         private:
             /**
              * @var unsigned int[]

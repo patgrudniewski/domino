@@ -99,6 +99,21 @@ namespace Domino {
         //@TODO: add tile to the board
     }
 
+#ifdef DEBUG
+    /**
+     * @return void
+     */
+    void Board::printMap()
+    {
+        for (unsigned int i = 0; i < this->size[0]; i++) {
+            for (unsigned int j = 0; j < this->size[1]; j++) {
+                cout << this->map[i][j];
+            }
+            cout << endl;
+        }
+    }
+#endif
+
     /**
      * @return pair<unsigned int, unsigned int>*
      */
