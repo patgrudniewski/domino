@@ -69,7 +69,7 @@ namespace Domino {
      */
     void Board::addTile(bool vertical)
     {
-        Board::Position *coordinates;
+        BoardPosition *coordinates;
         coordinates = this->findEmptySpace();
         if (NULL == coordinates) {
             throw new BoardOverflowException;
@@ -82,12 +82,12 @@ namespace Domino {
 
     /**
      * @param bool vertical
-     * @param Board::Position* coordinates
+     * @param BoardPosition* coordinates
      * @return void
      * @throws invalid_argument
      * @throws BoardPositionNotEmptyException
      */
-    void Board::addTile(bool vertical, Board::Position* coordinates)
+    void Board::addTile(bool vertical, BoardPosition* coordinates)
     {
         // @TODO: create tile-position-pair
         // @TODO: validate if tile-position-pair is out of bounds
@@ -110,16 +110,16 @@ namespace Domino {
 #endif
 
     /**
-     * @return Board::Position*
+     * @return BoardPosition*
      */
-    Board::Position* Board::findEmptySpace()
+    BoardPosition* Board::findEmptySpace()
     {
-        Board::Position *coordinates;
+        BoardPosition *coordinates;
 
         for (unsigned int i = 0; i < this->size[0]; i++) {
             for (unsigned int j = 0; j < this->size[1]; j++) {
                 if (!this->map[i][j]) {
-                    coordinates = (Board::Position*)malloc(sizeof(Board::Position));
+                    coordinates = (BoardPosition*)malloc(sizeof(BoardPosition));
                     coordinates->x = i;
                     coordinates->y = j;
 

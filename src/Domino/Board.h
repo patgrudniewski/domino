@@ -8,6 +8,7 @@
 #include <stdexcept>
 #include <utility>
 
+#include "BoardPosition.h"
 #include "Exception/BoardOverflowException.h"
 #include "Exception/BoardPositionNotEmptyException.h"
 
@@ -19,18 +20,6 @@ namespace Domino {
     class Board
     {
         public:
-            struct Position {
-                /**
-                 * @var unsigned int
-                 */
-                unsigned int x;
-
-                /**
-                 * @var unsigned int
-                 */
-                unsigned int y;
-            };
-
             /**
              * @param unsigned int size_x
              * @param unsigned int size_y
@@ -68,12 +57,12 @@ namespace Domino {
 
             /**
              * @param bool vertical
-             * @param Position* coordinates
+             * @param BoardPosition* coordinates
              * @return void
              * @throws std::invalid_argument
              * @throws Exception::BoardPositionNotEmptyException
              */
-            void addTile(bool vertical, Position* coordinates);
+            void addTile(bool vertical, BoardPosition* coordinates);
 
 #ifdef DEBUG
             /**
@@ -98,9 +87,9 @@ namespace Domino {
             int tile_count = 0;
 
             /**
-             * @return Position*
+             * @return BoardPosition*
              */
-            Position* findEmptySpace();
+            BoardPosition* findEmptySpace();
     };
 }
 
