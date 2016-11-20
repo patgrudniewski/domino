@@ -100,22 +100,29 @@ namespace Domino {
     /**
      * @param TileLocation* location
      * @return void
-     * @throws invalid_argument
      * @throws BoardPositionNotEmptyException
+     * @throws BoardPositionOutOfBoundsException
      */
     void Board::addTile(TileLocation* location)
     {
         BoardPosition *position[2];
 
-        // @TODO: validate if tile-position-pair is out of bounds
         position[0] = location->getFirstSegmentPosition();
         position[1] = location->getSecondSegmentPosition();
+        if (!this->isPositionValid(position[0])) {
+            throw BoardPositionOutOfBoundsException(position[0]);
+        }
+        if (!this->isPositionValid(position[1])) {
+            throw BoardPositionOutOfBoundsException(position[0]);
+        }
+
         if (!this->isPositionFree(position[0])) {
             throw BoardPositionNotEmptyException(position[0]);
         }
         if (!this->isPositionFree(position[1])) {
             throw BoardPositionNotEmptyException(position[1]);
         }
+        // @TODO: allocate tile positions
         // @TODO: add tile location to top of the list
     }
 
@@ -163,5 +170,14 @@ namespace Domino {
     bool Board::isPositionFree(BoardPosition* position)
     {
         return !this->map[position->x][position->y];
+    }
+
+    /**
+     * @param BoardPosition* position
+     * @return bool
+     */
+    bool Board::isPositionValid(BoardPosition* position)
+    {
+        return position->x < this->size[0] && position->y < this->size[1];
     }
 }

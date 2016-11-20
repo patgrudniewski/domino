@@ -12,6 +12,7 @@
 #include "Exception/BoardOverflowException.h"
 #include "Exception/BoardPositionException.h"
 #include "Exception/BoardPositionNotEmptyException.h"
+#include "Exception/BoardPositionOutOfBoundsException.h"
 #include "TileLocation.h"
 
 #ifdef DEBUG
@@ -104,6 +105,12 @@ namespace Domino {
              * @return bool
              */
             bool isPositionFree(BoardPosition* position);
+
+            /**
+             * @param BoardPosition* position
+             * @return bool
+             */
+            bool isPositionValid(BoardPosition* position);
     };
 }
 
