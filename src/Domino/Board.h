@@ -62,8 +62,6 @@ namespace Domino {
              * @param bool vertical
              * @param BoardPosition* coordinates
              * @return void
-             * @throws std::invalid_argument
-             * @throws Exception::BoardPositionNotEmptyException
              */
             void addTile(bool vertical, BoardPosition* coordinates);
 
@@ -111,6 +109,20 @@ namespace Domino {
              * @return bool
              */
             bool isPositionValid(BoardPosition* position);
+
+            /**
+             * @param TileLocation* location
+             * @return void
+             */
+            void mapLocation(TileLocation* location);
+
+            /**
+             * @param BoardPosition* position
+             * @return void
+             * @throws Exception::BoardPositionNotEmptyException
+             * @throws Exception::BoardPositionOutOfBoundsException
+             */
+            void mapPosition(BoardPosition* position);
     };
 }
 

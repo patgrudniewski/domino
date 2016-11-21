@@ -72,6 +72,7 @@ namespace Domino {
         BoardPosition *coordinates;
         coordinates = this->findEmptySpace();
         if (NULL == coordinates) {
+            this->printMap();
             throw new BoardOverflowException;
         }
 
@@ -100,29 +101,10 @@ namespace Domino {
     /**
      * @param TileLocation* location
      * @return void
-     * @throws BoardPositionNotEmptyException
-     * @throws BoardPositionOutOfBoundsException
      */
     void Board::addTile(TileLocation* location)
     {
-        BoardPosition *position[2];
-
-        position[0] = location->getFirstSegmentPosition();
-        position[1] = location->getSecondSegmentPosition();
-        if (!this->isPositionValid(position[0])) {
-            throw BoardPositionOutOfBoundsException(position[0]);
-        }
-        if (!this->isPositionValid(position[1])) {
-            throw BoardPositionOutOfBoundsException(position[0]);
-        }
-
-        if (!this->isPositionFree(position[0])) {
-            throw BoardPositionNotEmptyException(position[0]);
-        }
-        if (!this->isPositionFree(position[1])) {
-            throw BoardPositionNotEmptyException(position[1]);
-        }
-        // @TODO: allocate tile positions
+        this->mapLocation(location);
         // @TODO: add tile location to top of the list
     }
 
@@ -179,5 +161,33 @@ namespace Domino {
     bool Board::isPositionValid(BoardPosition* position)
     {
         return position->x < this->size[0] && position->y < this->size[1];
+    }
+
+    /**
+     * @param TileLocation* location
+     * @return void
+     */
+    void Board::mapLocation(TileLocation* location)
+    {
+        this->mapPosition(location->getFirstSegmentPosition());
+        this->mapPosition(location->getSecondSegmentPosition());
+    }
+
+    /**
+     * @param BoardPosition* position
+     * @return void
+     * @throws BoardPositionNotEmptyException
+     * @throws BoardPositionOutOfBoundsException
+     */
+    void Board::mapPosition(BoardPosition* position)
+    {
+        if (!this->isPositionValid(position)) {
+            throw BoardPositionOutOfBoundsException(position);
+        }
+        if (!this->isPositionFree(position)) {
+            throw BoardPositionNotEmptyException(position);
+        }
+
+        this->map[position->x][position->y] = true;
     }
 }

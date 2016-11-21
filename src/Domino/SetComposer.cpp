@@ -34,8 +34,10 @@ namespace Domino {
         iota(begin(*hashes), end(*hashes), 0);
         for (vector<unsigned int>::const_iterator hash = hashes->begin(); hash != hashes->end(); ++hash) {
             Set *set;
+            // @TODO: BUG! every set should have their own board (or board should be cleaned before adding next set
             set = new Set(this->board, hash);
             // @TODO: filter off impossible hashes
+            this->board->printMap();
 
             delete set;
         }
