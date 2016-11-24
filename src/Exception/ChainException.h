@@ -7,7 +7,7 @@
 #include <exception>
 
 namespace Exception {
-    class ChainException : public std::exception
+    class ChainException
     {
         public:
             /**
