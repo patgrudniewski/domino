@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <stdexcept>
 #include <utility>
+#include <vector>
 
 #include "BoardPosition.h"
 #include "Exception/BoardOverflowException.h"
@@ -104,6 +105,11 @@ namespace Domino {
              * @var int
              */
             int tile_count = 0;
+
+            /**
+             * @var std::vector<TileLocation*>
+             */
+            std::vector<TileLocation*> tiles;
 
             /**
              * @return BoardPosition*

@@ -114,7 +114,7 @@ namespace Domino {
 
             throw InvalidTileLocationException(location, e);
         }
-        // @TODO: add tile location to top of the list
+        this->tiles.push_back(location);
     }
 
     /**
@@ -127,6 +127,8 @@ namespace Domino {
                 this->map[i][j] = 0;
             }
         }
+
+        this->tiles.clear();
     }
 
 #ifdef DEBUG
