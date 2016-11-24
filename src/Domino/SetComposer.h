@@ -6,12 +6,14 @@
 
 #include <cmath>
 #include <cstdlib>
+#include <exception>
 #include <iterator>
 #include <numeric>
 #include <vector>
 
 #include "Board.h"
 #include "Exception/InvalidBoardSizeException.h"
+#include "Exception/InvalidHashException.h"
 #include "Set.h"
 
 namespace Domino {
