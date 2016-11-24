@@ -4,6 +4,7 @@
 #include "Set.h"
 
 namespace Domino {
+    using namespace Exception;
     using namespace std;
 
     /**
@@ -17,9 +18,13 @@ namespace Domino {
             mask = 1,
             mask_limit = pow(2, tiles_n);
 
-        while (mask < mask_limit) {
-            this->board->addTile((bool)(*hash & mask));
-            mask <<= 1;
+        try {
+            while (mask < mask_limit) {
+                this->board->addTile((bool)(*hash & mask));
+                mask <<= 1;
+            }
+        } catch (InvalidTileLocationException& e) {
+            throw InvalidHashException(hash, e);
         }
     }
 }

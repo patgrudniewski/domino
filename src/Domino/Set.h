@@ -8,6 +8,7 @@
 #include <vector>
 
 #include "Board.h"
+#include "Exception/InvalidHashException.h"
 
 namespace Domino {
     class Set
