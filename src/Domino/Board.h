@@ -76,6 +76,11 @@ namespace Domino {
              */
             void addTile(TileLocation* location);
 
+            /**
+             * @return void
+             */
+            void clean();
+
 #ifdef DEBUG
             /**
              * @return void

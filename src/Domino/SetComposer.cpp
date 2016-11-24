@@ -41,6 +41,7 @@ namespace Domino {
             // @TODO: filter off impossible hashes
 
             delete set;
+            board->clean();
         }
 
         delete board;

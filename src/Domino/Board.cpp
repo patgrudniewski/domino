@@ -115,6 +115,18 @@ namespace Domino {
         // @TODO: add tile location to top of the list
     }
 
+    /**
+     * @return void
+     */
+    void Board::clean()
+    {
+        for (int i = 0; i < this->size[0]; i++) {
+            for (int j = 0; j < this->size[1]; j++) {
+                this->map[i][j] = 0;
+            }
+        }
+    }
+
 #ifdef DEBUG
     /**
      * @return void
