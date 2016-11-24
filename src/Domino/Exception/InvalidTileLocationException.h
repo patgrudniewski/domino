@@ -23,10 +23,9 @@ namespace Domino::Exception {
             InvalidTileLocationException(TileLocation* location, std::exception& previous);
 
             /**
-             * @return std::exception&
+             * @return TileLocation*
              */
-
-
+            TileLocation* getLocation();
         private:
             /**
              * @var TileLocation*
