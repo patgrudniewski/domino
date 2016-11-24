@@ -111,7 +111,8 @@ namespace Domino {
         } catch (BoardPositionException &e) {
             this->unmapLocation(location);
             delete location;
-            // @TODO: throw exception for further use (InvalidTileLocationException)
+
+            throw InvalidTileLocationException(location, e);
         }
         // @TODO: add tile location to top of the list
     }

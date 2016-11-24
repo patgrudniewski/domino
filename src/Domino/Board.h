@@ -13,6 +13,7 @@
 #include "Exception/BoardPositionException.h"
 #include "Exception/BoardPositionNotEmptyException.h"
 #include "Exception/BoardPositionOutOfBoundsException.h"
+#include "Exception/InvalidTileLocationException.h"
 #include "TileLocation.h"
 
 #ifdef DEBUG
@@ -73,6 +74,7 @@ namespace Domino {
             /**
              * @param TileLocation* location
              * @return void
+             * @throws Exception::InvalidTileLocationException
              */
             void addTile(TileLocation* location);
 
