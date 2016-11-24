@@ -16,10 +16,18 @@ namespace Domino {
         this->size[0] = size_x;
         this->size[1] = size_y;
 
-        this->map = (bool**)malloc(this->size[0] * sizeof(bool*));
-        for (int i = 0; i < this->size[0]; i++) {
-            this->map[i] = (bool*)calloc(this->size[1], sizeof(bool));
-        }
+        this->allocMap();
+    }
+
+    /**
+     * @param Board* board
+     */
+    Board::Board(Board* board)
+    {
+        this->size[0] = board->getWidth();
+        this->size[1] = board->getHeight();
+
+        this->allocMap();
     }
 
     Board::~Board()
@@ -72,7 +80,6 @@ namespace Domino {
         BoardPosition *coordinates;
         coordinates = this->findEmptySpace();
         if (NULL == coordinates) {
-            this->printMap();
             throw new BoardOverflowException;
         }
 
@@ -189,5 +196,16 @@ namespace Domino {
         }
 
         this->map[position->x][position->y] = true;
+    }
+
+    /**
+     * @return void
+     */
+    void Board::allocMap()
+    {
+        this->map = (bool**)malloc(this->size[0] * sizeof(bool*));
+        for (int i = 0; i < this->size[0]; i++) {
+            this->map[i] = (bool*)calloc(this->size[1], sizeof(bool));
+        }
     }
 }

@@ -29,6 +29,11 @@ namespace Domino {
              */
             Board(unsigned int size_x, unsigned int size_y);
 
+            /**
+             * @apram Board* board
+             */
+            Board(Board* board);
+
             ~Board();
 
             /**
@@ -123,6 +128,11 @@ namespace Domino {
              * @throws Exception::BoardPositionOutOfBoundsException
              */
             void mapPosition(BoardPosition* position);
+
+            /**
+             * @return void
+             */
+            void allocMap();
     };
 }
 

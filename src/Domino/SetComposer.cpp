@@ -27,20 +27,23 @@ namespace Domino {
     {
         unsigned int setCount;
         vector<unsigned int> *hashes;
+        Board *board;
 
-        setCount = pow(2, this->board->getMaxTilesCount());
+        board = new Board(this->board);
+        setCount = pow(2, board->getMaxTilesCount());
 
         hashes = new vector<unsigned int>(setCount);
         iota(begin(*hashes), end(*hashes), 0);
         for (vector<unsigned int>::const_iterator hash = hashes->begin(); hash != hashes->end(); ++hash) {
             Set *set;
-            // @TODO: BUG! every set should have their own board (or board should be cleaned before adding next set
-            set = new Set(this->board, hash);
+
+            set = new Set(board, hash);
             // @TODO: filter off impossible hashes
-            this->board->printMap();
 
             delete set;
         }
+
+        delete board;
 
         return hashes;
     }
