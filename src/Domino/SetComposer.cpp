@@ -26,29 +26,31 @@ namespace Domino {
     vector<unsigned int>* SetComposer::getAllPossibleCompositionHashes()
     {
         unsigned int setCount;
-        vector<unsigned int> *hashes;
+        vector<unsigned int> *pool, *possible;
         Board *board;
         Set *set;
 
         board = new Board(this->board);
         setCount = pow(2, board->getMaxTilesCount());
 
-        hashes = new vector<unsigned int>(setCount);
-        iota(begin(*hashes), end(*hashes), 0);
-        for (vector<unsigned int>::const_iterator hash = hashes->begin(); hash != hashes->end(); ++hash) {
+        possible = new vector<unsigned int>();
+
+        pool = new vector<unsigned int>(setCount);
+        iota(begin(*pool), end(*pool), 0);
+        for (vector<unsigned int>::const_iterator hash = pool->begin(); hash != pool->end(); ++hash) {
             try {
                 set = new Set(board, hash);
+                possible->push_back(*hash);
                 delete set;
-            } catch (InvalidHashException& e) {
-                hashes->erase(hash);
-            }
+            } catch (InvalidHashException& e) {  }
 
             board->clean();
         }
 
         delete board;
+        delete pool;
 
-        return hashes;
+        return possible;
     }
 
     /**
