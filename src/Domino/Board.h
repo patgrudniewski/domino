@@ -127,12 +127,24 @@ namespace Domino {
             void mapLocation(TileLocation* location);
 
             /**
+             * @param TileLocation* location
+             * @return void
+             */
+            void unmapLocation(TileLocation* location);
+
+            /**
              * @param BoardPosition* position
              * @return void
              * @throws Exception::BoardPositionNotEmptyException
              * @throws Exception::BoardPositionOutOfBoundsException
              */
             void mapPosition(BoardPosition* position);
+
+            /**
+             * @param BoardPosition* position
+             * @return void
+             */
+            void unmapPosition(BoardPosition* position);
 
             /**
              * @return void

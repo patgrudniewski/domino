@@ -97,12 +97,7 @@ namespace Domino {
         TileLocation *location;
         location = new TileLocation(coordinates, vertical);
 
-        try {
-            this->addTile(location);
-        } catch (BoardPositionException &e) {
-            delete location;
-            // @TODO: throw exception for further use (InvalidTileLocationException)
-        }
+        this->addTile(location);
     }
 
     /**
@@ -111,7 +106,13 @@ namespace Domino {
      */
     void Board::addTile(TileLocation* location)
     {
-        this->mapLocation(location);
+        try {
+            this->mapLocation(location);
+        } catch (BoardPositionException &e) {
+            this->unmapLocation(location);
+            delete location;
+            // @TODO: throw exception for further use (InvalidTileLocationException)
+        }
         // @TODO: add tile location to top of the list
     }
 
@@ -193,6 +194,16 @@ namespace Domino {
     }
 
     /**
+     * @param TileLocation* location
+     * @return void
+     */
+    void Board::unmapLocation(TileLocation* location)
+    {
+        this->unmapPosition(location->getFirstSegmentPosition());
+        this->unmapPosition(location->getSecondSegmentPosition());
+    }
+
+    /**
      * @param BoardPosition* position
      * @return void
      * @throws BoardPositionNotEmptyException
@@ -208,6 +219,17 @@ namespace Domino {
         }
 
         this->map[position->x][position->y] = true;
+    }
+
+    /**
+     * @param BoardPosition* position
+     * @return void
+     */
+    void Board::unmapPosition(BoardPosition* position)
+    {
+        if (this->isPositionValid(position)) {
+            this->map[position->x][position->y] = false;
+        }
     }
 
     /**
