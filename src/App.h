@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include "tclap/Arg.h"
 #include "tclap/ArgException.h"

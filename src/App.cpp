@@ -1,8 +1,6 @@
 /**
  * @author Patryk Grudniewski <patgrudniewski@gmail.com>
  */
-#include <vector>
-
 #include "App.h"
 
 using namespace Domino;
@@ -47,8 +45,8 @@ void App::run(int argv, char** argc)
         composer = new SetComposer(board);
         hashes = composer->getAllPossibleCompositionHashes();
 
-        // @TODO: count hashes
-        // @TODO: print number of correct hashes
+        cout << "Number of possible domino sets with board of size " << width << " x " << height << ":" << endl;
+        cout << hashes->size();
 
         delete board;
         delete composer;
