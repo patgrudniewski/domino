@@ -39,9 +39,9 @@ class App final
         TCLAP::CmdLine* cli;
 
         /**
-         * @var TCLAP::Arg**
+         * @var std::vector<TCLAP::Arg*>
          */
-        TCLAP::Arg** cli_args;
+        std::vector<TCLAP::Arg*> cli_args;
 
         /**
          * @return void

@@ -19,7 +19,10 @@ App::App()
 
 App::~App()
 {
-    free(this->cli_args);
+    for (vector<Arg*>::iterator arg = this->cli_args.begin(); arg != this->cli_args.end(); arg++) {
+        delete *arg;
+    }
+
     delete this->cli;
 }
 
@@ -63,27 +66,23 @@ void App::run(int argv, char** argc)
  */
 void App::buildCliArgs()
 {
-    int arg_count = 2;
-
-    this->cli_args = (Arg**) malloc(arg_count * sizeof(Arg*));
-
-    this->cli_args[0] = new UnlabeledValueArg<int>(
+    this->cli_args.push_back(new UnlabeledValueArg<int>(
             "width",
             "Domino field's size",
             true,
             2,
             "width"
-            );
+            ));
 
-    this->cli_args[1] = new UnlabeledValueArg<int>(
+    this->cli_args.push_back(new UnlabeledValueArg<int>(
             "height",
             "Domino field's size",
             true,
             2,
             "height"
-            );
+            ));
 
-    for (int i = 0; i < arg_count; i++) {
-        this->cli->add(this->cli_args[i]);
+    for (vector<Arg*>::iterator arg = this->cli_args.begin(); arg != this->cli_args.end(); arg++) {
+        this->cli->add(*arg);
     }
 }
