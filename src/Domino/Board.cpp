@@ -128,6 +128,10 @@ namespace Domino {
             }
         }
 
+        for (vector<TileLocation*>::iterator i = this->tiles.begin(); i != this->tiles.end(); i++) {
+            delete *i;
+        }
+
         this->tiles.clear();
     }
 
