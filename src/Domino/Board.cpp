@@ -110,7 +110,6 @@ namespace Domino {
             this->mapLocation(location);
         } catch (BoardPositionException &e) {
             this->unmapLocation(location);
-            delete location;
 
             throw InvalidTileLocationException(location, e);
         }

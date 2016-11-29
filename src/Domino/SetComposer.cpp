@@ -42,7 +42,10 @@ namespace Domino {
                 set = new Set(board, hash);
                 possible->push_back(*hash);
                 delete set;
-            } catch (InvalidHashException& e) {  }
+            } catch (InvalidHashException& e) {
+                InvalidTileLocationException* previous = (InvalidTileLocationException*) &e.getPrevious();
+                delete previous->getLocation();
+            }
 
             board->clean();
         }

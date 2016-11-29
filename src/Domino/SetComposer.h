@@ -14,6 +14,7 @@
 #include "Board.h"
 #include "Exception/InvalidBoardSizeException.h"
 #include "Exception/InvalidHashException.h"
+#include "Exception/InvalidTileLocationException.h"
 #include "Set.h"
 
 namespace Domino {
